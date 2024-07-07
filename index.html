@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            margin: 10px 0;
+        }
+        .hidden {
+            display: none;
+        }
+        img{
+            width: 75%;
+        
+        }
+    </style>
+</head>
+<body>
+    <div id="login-form">
+        <h2>تسجيل الدخول</h2>
+        <form onsubmit="return checkCredentials()">
+            <label for="user_id">ID:</label><br>
+            <input type="text" id="user_id" required><br>
+            <label for="password">كلمة المرور:</label><br>
+            <input type="password" id="password" required><br>
+            <input type="submit" value="تسجيل الدخول">
+        </form>
+        <p id="error-message" style="color: red;" class="hidden">خطأ في بيانات الدخول. حاول مرة أخرى.</p>
+    </div>
+    <div id="image-container" class="hidden">
+        <h2>الصورة الخاصة بك</h2>
+        <img src="photo_2024-07-07_02-46-38.jpg" alt="Your Image" >
+    </div>
+    <script>
+        const correctUserId = "20221366901";
+        const correctPassword = "30303163300203";
+
+        function checkCredentials() {
+            const userId = document.getElementById('user_id').value;
+            const password = document.getElementById('password').value;
+            if (userId === correctUserId && password === correctPassword) {
+                document.getElementById('login-form').classList.add('hidden');
+                document.getElementById('image-container').classList.remove('hidden');
+            } else {
+                document.getElementById('error-message').classList.remove('hidden');
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
